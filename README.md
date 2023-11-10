@@ -1,3 +1,3 @@
-# student_crud
+# Spring CRUD
 
-TASK: Develop CRUD for a Student object - JSON structure. All data should be saved on MongoDB. Try to use Docker
+Develop a CRUD for Student objects using Postgres and the Spring Boot framework
