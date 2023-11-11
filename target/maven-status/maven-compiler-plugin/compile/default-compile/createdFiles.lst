@@ -1,0 +1,6 @@
+com/example/student_crud_spring/repository/StudentRepository.class
+com/example/student_crud_spring/StudentCrudSpringApplication.class
+com/example/student_crud_spring/service/StudentService.class
+com/example/student_crud_spring/dto/StudentDto.class
+com/example/student_crud_spring/controller/StudentController.class
+com/example/student_crud_spring/confing/JooqConfig.class

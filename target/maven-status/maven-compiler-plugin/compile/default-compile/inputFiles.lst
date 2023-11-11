@@ -1,0 +1,6 @@
+/Users/mikolaalekseev/eclipse-workspace/student_crud_spring/src/main/java/com/example/student_crud_spring/StudentCrudSpringApplication.java
+/Users/mikolaalekseev/eclipse-workspace/student_crud_spring/src/main/java/com/example/student_crud_spring/confing/JooqConfig.java
+/Users/mikolaalekseev/eclipse-workspace/student_crud_spring/src/main/java/com/example/student_crud_spring/controller/StudentController.java
+/Users/mikolaalekseev/eclipse-workspace/student_crud_spring/src/main/java/com/example/student_crud_spring/service/StudentService.java
+/Users/mikolaalekseev/eclipse-workspace/student_crud_spring/src/main/java/com/example/student_crud_spring/dto/StudentDto.java
+/Users/mikolaalekseev/eclipse-workspace/student_crud_spring/src/main/java/com/example/student_crud_spring/repository/StudentRepository.java
