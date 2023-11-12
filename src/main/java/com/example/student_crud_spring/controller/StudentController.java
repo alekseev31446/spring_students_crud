@@ -17,71 +17,41 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.student_crud_spring.dto.StudentDto;
 import com.example.student_crud_spring.service.StudentService;
 
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/students")
 public class StudentController {
-    private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
-
     private final StudentService studentService;
 
-    @Autowired
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
+    @GetMapping("/show/all")
+    public List<StudentDto> getAll() {
+            return studentService.getAll();
+        
     }
 
-    @GetMapping
-    public List<StudentDto> doGet() {
-        try {
-            return studentService.getAllStudents();
-        } catch (Exception e) {
-            logger.error("Error in GET request", e);
-            throw e;
-        }
+    @GetMapping("/find/{id}")
+    public StudentDto getById(@PathVariable Integer id) {
+            return studentService.getById(id);
     }
 
-    @GetMapping("/{id}")
-    public StudentDto doGet(@PathVariable Long id) {
-        try {
-            return studentService.getStudent(id);
-        } catch (Exception e) {
-            logger.error("Error in GET request for student with ID: {}", id, e);
-            throw e;
-        }
+    @PostMapping("/add")
+    public StudentDto create(@RequestBody StudentDto student) {
+            return studentService.create(student);
     }
 
-    @PostMapping
-    public StudentDto doPost(@RequestBody StudentDto student) {
-        try {
-            studentService.addStudent(student);
-            return student;
-        } catch (Exception e) {
-            logger.error("Error in POST request", e);
-            throw e;
-        }
-    }
-
-    @PutMapping("/{id}")
-    public StudentDto doPut(@PathVariable Long id, @RequestBody StudentDto student) {
-        try {
+    @PutMapping("/update/{id}")
+    public StudentDto update(@PathVariable Integer id, @RequestBody StudentDto student) {
             student.setId(id);
-            studentService.updateStudent(student);
-            return student;
-        } catch (Exception e) {
-            logger.error("Error in PUT request for student with ID: {}", id, e);
-            throw e;
-        }
+            return studentService.update(student);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> doDelete(@PathVariable Long id) {
-        try {
-            studentService.deleteStudent(id);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
+            studentService.delete(id);
             return new ResponseEntity<>("Student deleted successfully", HttpStatus.OK);
-        } catch (Exception e) {
-            logger.error("Error in DELETE request for student with ID: {}", id, e);
-            throw e;
-        }
     }
 }
